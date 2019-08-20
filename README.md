@@ -1,0 +1,2 @@
+# ragnarokapi
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9c3154a1d6d748e186189380d0af8ce7)](https://app.codacy.com/app/carloshenrq/ragnarokapi?utm_source=github.com&utm_medium=referral&utm_content=carloshenrq/ragnarokapi&utm_campaign=Badge_Grade_Dashboard)
