@@ -1,0 +1,38 @@
+{
+    "login" : {
+        "sql" : {
+            "driver" : "mysql",
+            "host" : "127.0.0.1",
+            "database" : "ragnarok",
+            "username" : "ragnarok",
+            "password" : "ragnarok",
+            "charset" : "utf8",
+            "collation" : "utf8_swedish_ci",
+            "prefix" : ""
+        }
+    },
+    "char" : {
+        "sql" : {
+            "driver" : "mysql",
+            "host" : "127.0.0.1",
+            "database" : "ragnarok",
+            "username" : "ragnarok",
+            "password" : "ragnarok",
+            "charset" : "utf8",
+            "collation" : "utf8_swedish_ci",
+            "prefix" : ""
+        }
+    },
+    "map" : {
+        "sql" : {
+            "driver" : "mysql",
+            "host" : "127.0.0.1",
+            "database" : "ragnarok",
+            "username" : "ragnarok",
+            "password" : "ragnarok",
+            "charset" : "utf8",
+            "collation" : "utf8_swedish_ci",
+            "prefix" : ""
+        }
+    }
+}
