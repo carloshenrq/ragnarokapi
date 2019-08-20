@@ -18,9 +18,12 @@
  */
 
 require_once 'vendor/autoload.php';
+require_once 'tests/TDatabaseSetup.php';
 
 class ConfigTest extends PHPUnit\Framework\TestCase
 {
+    use TDatabaseSetup;
+
     /**
      * Tests the login server sql connection
      */
@@ -50,38 +53,4 @@ class ConfigTest extends PHPUnit\Framework\TestCase
         $pdo = $map->getPdo();
         $this->assertInstanceOf('Doctrine\DBAL\Driver\PDOConnection', $pdo);
     }
-
-    /**
-     * Configure the test environment
-     */
-    public function setUp()
-    {
-        // Config file path
-        $config = realpath(join(DIRECTORY_SEPARATOR, [
-            __DIR__, '..', 'build', 'config.json'
-        ]));
-
-        // Fetches config data
-        $text = file_get_contents($config);
-        $this->config = json_decode($text);
-
-        // Prepares database for connection
-        $manager = new Illuminate\Database\Capsule\Manager();
-        $manager->addConnection((array)$this->config->login->sql, 'login');
-        $manager->addConnection((array)$this->config->char->sql, 'char');
-        $manager->addConnection((array)$this->config->map->sql, 'map');
-        $manager->setEventDispatcher(
-            new Illuminate\Events\Dispatcher(
-                new Illuminate\Container\Container()
-            )
-        );
-        $manager->setAsGlobal();
-        $manager->bootEloquent();
-    }
-
-    /**
-     * The configuration file
-     * @var object
-     */
-    private $config;
 }
