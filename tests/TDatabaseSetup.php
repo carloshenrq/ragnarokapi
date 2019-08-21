@@ -38,6 +38,7 @@ trait TDatabaseSetup
         $manager->addConnection((array)$this->config->login->sql, 'login');
         $manager->addConnection((array)$this->config->char->sql, 'char');
         $manager->addConnection((array)$this->config->map->sql, 'map');
+        $manager->addConnection((array)$this->config->logs->sql, 'logs');
         $manager->setEventDispatcher(
             new Illuminate\Events\Dispatcher(
                 new Illuminate\Container\Container()

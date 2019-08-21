@@ -25,6 +25,16 @@ class ConfigTest extends PHPUnit\Framework\TestCase
     use TDatabaseSetup;
 
     /**
+     * Tests the logs sql connection
+     */
+    public function testLogsSQLConnection()
+    {
+        $logs = Illuminate\Database\Capsule\Manager::connection('logs');
+        $pdo = $logs->getPdo();
+        $this->assertInstanceOf('Doctrine\DBAL\Driver\PDOConnection', $pdo);
+    }
+
+    /**
      * Tests the login server sql connection
      */
     public function testLoginSQLConnection()

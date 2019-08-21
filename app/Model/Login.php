@@ -24,6 +24,16 @@ use \DateTime;
 class Login extends \Illuminate\Database\Eloquent\Model
 {
     /**
+     * Fetches all login logs for this object.
+     * 
+     * @return array
+     */
+    public function logs()
+    {
+        return $this->hasMany('Model\LoginLog', 'user', 'userid');
+    }
+
+    /**
      * Gets the information that says this account is banned.
      * 
      * @return boolean
@@ -72,11 +82,6 @@ class Login extends \Illuminate\Database\Eloquent\Model
     }
 
     /**
-     * Illuminate\Database\Eloquent\Model::$timestamps
-     */
-    public $timestamps = false;
-
-    /**
      * Illuminate\Database\Eloquent\Model::$appends
      */
     protected $appends = ['unBanDate', 'isBanned', 'expirationDate', 'isExpired'];
@@ -103,6 +108,11 @@ class Login extends \Illuminate\Database\Eloquent\Model
     ];
 
     /**
+     * Illuminate\Database\Eloquent\Model::$timestamps
+     */
+    public $timestamps = false;
+
+    /**
      * @see Illuminate\Database\Eloquent\Model::$primaryKey
      */
     protected $primaryKey = 'account_id';
@@ -116,4 +126,24 @@ class Login extends \Illuminate\Database\Eloquent\Model
      * @see Illuminate\Database\Eloquent\Model::$connection
      */
     protected $connection = 'login';
+
+    /**
+     * @see Illuminate\Database\Eloquent\Model::$fillable
+     */
+    protected $fillable = [
+        'userid',
+        'user_pass',
+        'sex',
+        'email',
+        'group_id',
+        'state',
+        'unban_time',
+        'expiration_time',
+        'lastlogin',
+        'last_ip',
+        'birthdate',
+        'character_slots',
+        'pincode',
+        'pincode_change'
+    ];
 }
