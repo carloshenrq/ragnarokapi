@@ -25,6 +25,17 @@ class LoginModelTest extends PHPUnit\Framework\TestCase
     use TDatabaseSetup;
 
     /**
+     * Tests the loginlog relation
+     */
+    public function testLoginLog()
+    {
+        $login = Model\Login::first();
+        $count = $login->logs->count();
+
+        $this->assertEquals(0, $count);
+    }
+
+    /**
      * First test to find the server login at database
      */
     public function testFirstModel()
