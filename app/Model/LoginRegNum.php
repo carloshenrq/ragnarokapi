@@ -18,6 +18,7 @@
  */
 
 namespace Model;
+require_once 'TCompositeKeys.php';
 
 class LoginRegNum extends \Illuminate\Database\Eloquent\Model
 {
