@@ -19,10 +19,8 @@
 
 namespace Model;
 
-class LoginRegNum extends \Illuminate\Database\Eloquent\Model
+class LoginRegNum extends ModelCompositeKeys
 {
-    use \Model\TCompositeKeys;
-
     /**
      * Fetches the account to this one.
      */

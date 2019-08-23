@@ -20,11 +20,12 @@
 namespace Model;
 
 use \Illuminate\Database\Eloquent\Builder;
+use \Illuminate\Database\Eloquent\Model;
 
 /**
  * @link https://stackoverflow.com/a/36995763
  */
-trait TCompositeKeys
+class ModelCompositeKeys extends Model
 {
     /**
      * Illuminate\Database\Eloquent\Model::getIncrementing()
@@ -68,7 +69,8 @@ trait TCompositeKeys
      */
     public static function find($ids, $columns = ['*'])
     {
-        $me = new self;
+        $className = get_called_class();
+        $me = new $className;
         $query = $me->newQuery();
         foreach ($me->getKeyName() as $key)
             $query->where($key, '=', $ids[$key]);
