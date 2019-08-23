@@ -18,11 +18,10 @@
  */
 
 namespace Model;
-require_once 'TCompositeKeys.php';
 
 class LoginRegNum extends \Illuminate\Database\Eloquent\Model
 {
-    use TCompositeKeys;
+    use \Model\TCompositeKeys;
 
     /**
      * Fetches the account to this one.

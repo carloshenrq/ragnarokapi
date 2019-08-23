@@ -21,6 +21,8 @@ namespace Model;
 
 class LoginLog extends \Illuminate\Database\Eloquent\Model
 {
+    use \Model\TCompositeKeys;
+
     /**
      * The user login that log belongs.
      * 
