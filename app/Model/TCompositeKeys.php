@@ -21,6 +21,9 @@ namespace Model;
 
 use \Illuminate\Database\Eloquent\Builder;
 
+/**
+ * @link https://stackoverflow.com/a/36995763
+ */
 trait TCompositeKeys
 {
     /**
