@@ -24,6 +24,16 @@ use \DateTime;
 class Login extends \Illuminate\Database\Eloquent\Model
 {
     /**
+     * Fetches all reg num vars
+     * 
+     * @return array
+     */
+    public function regNumVars()
+    {
+        return $this->hasMany('Model\LoginRegNum', 'account_id', 'account_id');
+    }
+
+    /**
      * Fetches all login logs for this object.
      * 
      * @return array
